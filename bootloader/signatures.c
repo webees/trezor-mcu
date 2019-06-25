@@ -70,7 +70,7 @@ bool firmware_present_old(void) {
 }
 
 int signatures_old_ok(void) {
-  return true; // webees 20190625
+  return SIG_OK; // webees 20190625
   const uint32_t codelen = *((const uint32_t *)FLASH_META_CODELEN);
   const uint8_t sigindex1 = *((const uint8_t *)FLASH_META_SIGINDEX1);
   const uint8_t sigindex2 = *((const uint8_t *)FLASH_META_SIGINDEX2);
@@ -138,7 +138,7 @@ bool firmware_present_new(void) {
 }
 
 int signatures_new_ok(const image_header *hdr, uint8_t store_fingerprint[32]) {
-  return true; // webees 20190625
+  return SIG_OK; // webees 20190625
   uint8_t hash[32];
   compute_firmware_fingerprint(hdr, hash);
 
@@ -181,6 +181,7 @@ int mem_is_empty(const uint8_t *src, uint32_t len) {
 }
 
 int check_firmware_hashes(const image_header *hdr) {
+  return SIG_OK; // webees 20190625
   uint8_t hash[32];
   // check hash of the first code chunk
   sha256_Raw(FLASH_PTR(FLASH_APP_START), (64 - 1) * 1024, hash);
