@@ -39,7 +39,7 @@ static int known_bootloader(int r, const uint8_t *hash) {
       memcmp(hash,
              "\x77\xb8\xe2\xf2\x5f\xaa\x8e\x8c\x7d\x9f\x5b\x32\x3b\x27\xce\x05"
              "\x6c\xa3\xdb\xc2\x3f\x56\xc3\x7e\xe3\x3f\x97\x7c\xa6\xeb\x4d\x3e",
-             32))
+             32))F
     return 1;  // 1.2.0b
   if (0 ==
       memcmp(hash,
