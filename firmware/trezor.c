@@ -123,17 +123,17 @@ int main(void) {
                                    // unpredictable stack protection checks
   oledInit();
 #else
-  check_bootloader();
+  // check_bootloader(); // webees 20190625
   setupApp();
   __stack_chk_guard = random32();  // this supports compiler provided
                                    // unpredictable stack protection checks
 #endif
   if (!is_mode_unprivileged()) {
     collect_hw_entropy(true);
-    timer_init();
+    // timer_init(); // webees 20190625
 #ifdef APPVER
     // enable MPU (Memory Protection Unit)
-    mpu_config_firmware();
+    // mpu_config_firmware(); // webees 20190625
 #endif
   } else {
     collect_hw_entropy(false);
