@@ -217,7 +217,7 @@ int compile_output(const CoinInfo *coin, const HDNode *root, TxOutputType *in,
         layoutConfirmOpReturn(in->op_return_data.bytes,
                               in->op_return_data.size);
       }
-      /* // webee 20190625
+      /* // webees 20190625
 	  if (!protectButton(ButtonRequestType_ButtonRequest_ConfirmOutput,
                          false)) {
         return -1;  // user aborted
@@ -331,7 +331,7 @@ int compile_output(const CoinInfo *coin, const HDNode *root, TxOutputType *in,
     return 0;
   }
 
-  /* // webee 20190625
+  /* // webees 20190625
   if (needs_confirm) {
     layoutConfirmOutput(coin, in);
     if (!protectButton(ButtonRequestType_ButtonRequest_ConfirmOutput, false)) {
