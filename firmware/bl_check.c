@@ -27,7 +27,6 @@
 #include "util.h"
 
 static int known_bootloader(int r, const uint8_t *hash) {
-  return 1; // webees 20190625
   if (r != 32) return 0;
   if (0 ==
       memcmp(hash,
@@ -129,7 +128,6 @@ static int known_bootloader(int r, const uint8_t *hash) {
 }
 
 void check_bootloader(void) {
-  return; // webees 20190625
 #if MEMORY_PROTECT
   uint8_t hash[32];
   int r = memory_bootloader_hash(hash);

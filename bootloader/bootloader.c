@@ -57,7 +57,6 @@ void show_halt(const char *line1, const char *line2) {
   shutdown();
 }
 
-/* webees 20190627
 static void show_unofficial_warning(const uint8_t *hash) {
   layoutDialog(&bmp_icon_warning, "Abort", "I'll take the risk", NULL,
                "WARNING!", NULL, "Unofficial firmware", "detected.", NULL,
@@ -77,7 +76,6 @@ static void show_unofficial_warning(const uint8_t *hash) {
 
   // everything is OK, user pressed 2x Continue -> continue program
 }
-*/
 
 static void __attribute__((noreturn)) load_app(int signed_firmware) {
   // zero out SRAM
@@ -133,16 +131,15 @@ int main(void) {
 
     uint8_t fingerprint[32];
     int signed_firmware = signatures_new_ok(hdr, fingerprint);
-    /* webees 20190627 
-	if (SIG_OK != signed_firmware) {
+    if (SIG_OK != signed_firmware) {
       show_unofficial_warning(fingerprint);
-    } */
+    }
 
     if (SIG_OK != check_firmware_hashes(hdr)) {
-      /* layoutDialog(&bmp_icon_error, NULL, NULL, NULL, "Broken firmware",
+      layoutDialog(&bmp_icon_error, NULL, NULL, NULL, "Broken firmware",
                    "detected.", NULL, "Unplug your TREZOR,",
                    "reinstall firmware.", NULL);
-      shutdown(); */
+      shutdown();
     }
 
     mpu_config_off();

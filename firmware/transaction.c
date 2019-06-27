@@ -217,12 +217,10 @@ int compile_output(const CoinInfo *coin, const HDNode *root, TxOutputType *in,
         layoutConfirmOpReturn(in->op_return_data.bytes,
                               in->op_return_data.size);
       }
-      /* // webees 20190625
-	  if (!protectButton(ButtonRequestType_ButtonRequest_ConfirmOutput,
+      if (!protectButton(ButtonRequestType_ButtonRequest_ConfirmOutput,
                          false)) {
         return -1;  // user aborted
       }
-	  */
     }
     uint32_t r = 0;
     out->script_pubkey.bytes[0] = 0x6A;
@@ -331,14 +329,12 @@ int compile_output(const CoinInfo *coin, const HDNode *root, TxOutputType *in,
     return 0;
   }
 
-  /* // webees 20190625
   if (needs_confirm) {
     layoutConfirmOutput(coin, in);
     if (!protectButton(ButtonRequestType_ButtonRequest_ConfirmOutput, false)) {
       return -1;  // user aborted
     }
   }
-  */
 
   return out->script_pubkey.size;
 }
