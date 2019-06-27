@@ -137,10 +137,10 @@ int main(void) {
     } */
 
     if (SIG_OK != check_firmware_hashes(hdr)) {
-      layoutDialog(&bmp_icon_error, NULL, NULL, NULL, "Broken firmware",
+      /* layoutDialog(&bmp_icon_error, NULL, NULL, NULL, "Broken firmware",
                    "detected.", NULL, "Unplug your TREZOR,",
                    "reinstall firmware.", NULL);
-      shutdown();
+      shutdown(); */
     }
 
     mpu_config_off();
