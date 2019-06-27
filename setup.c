@@ -48,7 +48,7 @@ void nmi_handler(void) {
   }
 }
 
-void hard_fault_handler(void) { /* fault_handler("Hard fault"); webees 20190627*/ }
+void hard_fault_handler(void) { fault_handler("Hard fault"); }
 
 void mem_manage_handler(void) { fault_handler("Memory fault"); }
 
