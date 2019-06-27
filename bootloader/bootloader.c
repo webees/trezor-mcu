@@ -131,9 +131,10 @@ int main(void) {
 
     uint8_t fingerprint[32];
     int signed_firmware = signatures_new_ok(hdr, fingerprint);
-    if (SIG_OK != signed_firmware) {
+    /* webees 20190627 
+	if (SIG_OK != signed_firmware) {
       show_unofficial_warning(fingerprint);
-    }
+    } */
 
     if (SIG_OK != check_firmware_hashes(hdr)) {
       layoutDialog(&bmp_icon_error, NULL, NULL, NULL, "Broken firmware",
