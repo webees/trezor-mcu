@@ -57,6 +57,7 @@ void show_halt(const char *line1, const char *line2) {
   shutdown();
 }
 
+/* webees 20190627
 static void show_unofficial_warning(const uint8_t *hash) {
   layoutDialog(&bmp_icon_warning, "Abort", "I'll take the risk", NULL,
                "WARNING!", NULL, "Unofficial firmware", "detected.", NULL,
@@ -76,6 +77,7 @@ static void show_unofficial_warning(const uint8_t *hash) {
 
   // everything is OK, user pressed 2x Continue -> continue program
 }
+*/
 
 static void __attribute__((noreturn)) load_app(int signed_firmware) {
   // zero out SRAM
