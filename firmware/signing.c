@@ -703,12 +703,14 @@ static bool signing_check_fee(void) {
     }
   }
   // last confirmation
+  /* webees
   layoutConfirmTx(coin, to_spend - change_spend, fee);
   if (!protectButton(ButtonRequestType_ButtonRequest_SignTx, false)) {
     fsm_sendFailure(FailureType_Failure_ActionCancelled, NULL);
     signing_abort();
     return false;
   }
+  */
   return true;
 }
 
