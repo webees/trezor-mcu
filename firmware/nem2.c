@@ -289,8 +289,7 @@ bool nem_askTransfer(const NEMTransactionCommon *common,
     return false;
   }*/
 
-  return t
-  rue;
+  return true;
 }
 
 bool nem_fsmTransfer(nem_transaction_ctx *context, const HDNode *node,
