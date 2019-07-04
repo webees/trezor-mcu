@@ -207,8 +207,9 @@ bool nem_askTransfer(const NEMTransactionCommon *common,
                      const NEMTransfer *transfer, const char *desc) {
   if (transfer->mosaics_count) {
     const NEMMosaic *xem = NULL;
-    bool unknownMosaic = false;
-
+	/* webees 20190704
+	  bool unknownMosaic = false;
+	*/
     const NEMMosaicDefinition *definitions[transfer->mosaics_count];
 
     for (size_t i = 0; i < transfer->mosaics_count; i++) {
@@ -219,9 +220,11 @@ bool nem_askTransfer(const NEMTransactionCommon *common,
 
       if (definitions[i] == NEM_MOSAIC_DEFINITION_XEM) {
         xem = mosaic;
-      } else if (definitions[i] == NULL) {
+      } 
+	  /* webees 20190704
+	  else if (definitions[i] == NULL) {
         unknownMosaic = true;
-      }
+      }*/
     }
 
     bignum256 multiplier;
@@ -233,7 +236,7 @@ bool nem_askTransfer(const NEMTransactionCommon *common,
                         _("Unknown Mosaics"), _("Divisibility and levy"),
                         _("cannot be shown for"), _("unknown mosaics!"), NULL,
                         NULL, NULL);
-      if (!protectButton(ButtonRequestType_ButtonRequest_ConfirmOutput,
+      if (! (ButtonRequestType_ButtonRequest_ConfirmOutput,
                          false)) {
         return false;
       }
