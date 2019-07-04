@@ -1,4 +1,5 @@
 /*
+/*
  * This file is part of the TREZOR project, https://trezor.io/
  *
  * Copyright (C) 2017 Saleem Rashid <trezor@saleemrashid.com>
@@ -41,7 +42,7 @@ const char *nem_validate_importance_transfer(
     const NEMImportanceTransfer *importance_transfer);
 
 bool nem_askTransfer(const NEMTransactionCommon *common,
-                     const NEMTransfer *transfer, const char *desc);
+                     const NEMTransfer *transfer/*, const char *desc*/);
 bool nem_fsmTransfer(nem_transaction_ctx *context, const HDNode *node,
                      const NEMTransactionCommon *common,
                      const NEMTransfer *transfer);
