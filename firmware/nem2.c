@@ -274,6 +274,7 @@ bool nem_askTransfer(const NEMTransactionCommon *common,
     }
   }*/
 
+  /*
   if (transfer->has_payload) {
     layoutNEMTransferPayload(transfer->payload.bytes, transfer->payload.size,
                              transfer->has_public_key);
