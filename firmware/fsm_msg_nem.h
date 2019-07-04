@@ -136,7 +136,7 @@ void fsm_msgNEMSignTx(NEMSignTx *msg) {
         msg->transfer.mosaics, msg->transfer.mosaics_count);
   }
 
-  if (msg->has_transfer && !nem_askTransfer(common, &msg->transfer, network)) {
+  if (msg->has_transfer && !nem_askTransfer(common, &msg->transfer/*, network*/)) {
     fsm_sendFailure(FailureType_Failure_ActionCancelled,
                     _("Signing cancelled by user"));
     layoutHome();
