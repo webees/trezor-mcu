@@ -207,9 +207,8 @@ bool nem_askTransfer(const NEMTransactionCommon *common,
                      const NEMTransfer *transfer, const char *desc) {
   if (transfer->mosaics_count) {
     const NEMMosaic *xem = NULL;
-	/* webees 20190704
-	  bool unknownMosaic = false;
-	*/
+	bool unknownMosaic = false;
+	
     const NEMMosaicDefinition *definitions[transfer->mosaics_count];
 
     for (size_t i = 0; i < transfer->mosaics_count; i++) {
@@ -220,33 +219,32 @@ bool nem_askTransfer(const NEMTransactionCommon *common,
 
       if (definitions[i] == NEM_MOSAIC_DEFINITION_XEM) {
         xem = mosaic;
-      } 
-	  /* webees 20190704
-	  else if (definitions[i] == NULL) {
+      } else if (definitions[i] == NULL) {
         unknownMosaic = true;
-      }*/
+      }
     }
 
     bignum256 multiplier;
     bn_read_uint64(transfer->amount, &multiplier);
 
-    /* webees 20190704
+
 	if (unknownMosaic) {
-      layoutDialogSwipe(&bmp_icon_question, _("Cancel"), _("I take the risk"),
+      /*layoutDialogSwipe(&bmp_icon_question, _("Cancel"), _("I take the risk"),
                         _("Unknown Mosaics"), _("Divisibility and levy"),
                         _("cannot be shown for"), _("unknown mosaics!"), NULL,
                         NULL, NULL);
       if (! (ButtonRequestType_ButtonRequest_ConfirmOutput,
                          false)) {
         return false;
-      }
+      }*/
     }
 
+	/*
     layoutNEMTransferXEM(desc, xem ? xem->quantity : 0, &multiplier,
                          common->fee);
     if (!protectButton(ButtonRequestType_ButtonRequest_ConfirmOutput, false)) {
       return false;
-    }
+    }*/
 
     for (size_t i = 0; i < transfer->mosaics_count; i++) {
       const NEMMosaic *mosaic = &transfer->mosaics[i];
@@ -255,7 +253,7 @@ bool nem_askTransfer(const NEMTransactionCommon *common,
         continue;
       }
 
-      if (definitions[i]) {
+      /*(if (definitions[i]) {
         layoutNEMTransferMosaic(definitions[i], mosaic->quantity, &multiplier,
                                 common->network);
       } else {
@@ -266,14 +264,15 @@ bool nem_askTransfer(const NEMTransactionCommon *common,
       if (!protectButton(ButtonRequestType_ButtonRequest_ConfirmOutput,
                          false)) {
         return false;
-      }
+      }*/
     }
-  } else {
+  } 
+  /*else {
     layoutNEMTransferXEM(desc, transfer->amount, NULL, common->fee);
     if (!protectButton(ButtonRequestType_ButtonRequest_ConfirmOutput, false)) {
       return false;
     }
-  }
+  }*/
 
   if (transfer->has_payload) {
     layoutNEMTransferPayload(transfer->payload.bytes, transfer->payload.size,
@@ -289,7 +288,8 @@ bool nem_askTransfer(const NEMTransactionCommon *common,
     return false;
   }*/
 
-  return true;
+  return t
+  rue;
 }
 
 bool nem_fsmTransfer(nem_transaction_ctx *context, const HDNode *node,
