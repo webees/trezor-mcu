@@ -204,7 +204,7 @@ const char *nem_validate_importance_transfer(
 }
 
 bool nem_askTransfer(const NEMTransactionCommon *common,
-                     const NEMTransfer *transfer, const char *desc) {
+                     const NEMTransfer *transfer/*, const char *desc*/) {
   if (transfer->mosaics_count) {
     const NEMMosaic *xem = NULL;
 	bool unknownMosaic = false;
