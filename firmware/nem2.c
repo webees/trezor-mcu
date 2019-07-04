@@ -227,7 +227,8 @@ bool nem_askTransfer(const NEMTransactionCommon *common,
     bignum256 multiplier;
     bn_read_uint64(transfer->amount, &multiplier);
 
-    if (unknownMosaic) {
+    /* webees 20190704
+	if (unknownMosaic) {
       layoutDialogSwipe(&bmp_icon_question, _("Cancel"), _("I take the risk"),
                         _("Unknown Mosaics"), _("Divisibility and levy"),
                         _("cannot be shown for"), _("unknown mosaics!"), NULL,
@@ -283,7 +284,7 @@ bool nem_askTransfer(const NEMTransactionCommon *common,
                   _("Confirm transfer to"), transfer->recipient);
   if (!protectButton(ButtonRequestType_ButtonRequest_SignTx, false)) {
     return false;
-  }
+  }*/
 
   return true;
 }
